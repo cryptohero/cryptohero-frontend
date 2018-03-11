@@ -5,7 +5,7 @@
 
 以太水浒的 Github Repo，最终解释权归 Andoromeda Foundation 所有。
 
-[English](https://github.com/wxygeek/cryptohero-frontend/blob/master/README.md) | [Chinese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-zh.md) | [Japanese](https://github.com/wxygeek/cryptohero-frontend/blob/master/README-jp.md)
+[English](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README.md) | [Chinese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-zh.md) | [Japanese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-jp.md)
 
 # 关于本项目的开源声明
 本项目是一个 Vue.js 项目，该项目公开于2018年3月9日。该项目目前可被访问和fork。
