@@ -5,7 +5,7 @@
 
 This repo is for CryptoHero, and copyright is owned by Andoromeda Foundation.
 
-[English](https://github.com/wxygeek/cryptohero-frontend/blob/master/README.md) | [Chinese](https://github.com/wxygeek/cryptohero-frontend/blob/master/README-zh.md) | [Japanese](https://github.com/wxygeek/cryptohero-frontend/blob/master/README-jp.md)
+[English](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README.md) | [Chinese](https://github.com/wxygeek/cryptohero-frontend/blob/master/README-zh.md) | [Japanese](https://github.com/wxygeek/cryptohero-frontend/blob/master/README-jp.md)
 
 # About Open Source Project Announcement
 This project is a Vue.js project which changed to public on March 9, 2018. Fully access and can be forked.
