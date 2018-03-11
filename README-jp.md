@@ -5,7 +5,7 @@
 
 暗号化英雄のGithub Repo、最終の解釈権は Andoromeda Foundation に所有する。
 
-[English](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README.md) | [Chinese](https://github.com/wxygeek/cryptohero-frontend/blob/master/README-zh.md) | [Japanese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-jp.md)
+[English](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README.md) | [Chinese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-zh.md) | [Japanese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-jp.md)
 
 # 本プロジェクトに関するオープンソースの声明
 本プロジェクトは一つの Vue.js プロジェクトであり、2018年3月9日にオープンされること。今は全アクセスできる、フォークされれる。
