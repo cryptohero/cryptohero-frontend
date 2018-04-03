@@ -1,18 +1,24 @@
 <template>
   <div>
-    <section class="hero user-info-wrapper"
-             v-bind:style="{ backgroundColor: '#'+address.slice(-6)}">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-          </h1>
-          <h2 class="subtitle">
-            {{$t('User')}}: {{address}}
-          </h2>
-        </div>
+    <!-- rewrite -->
+    <div class="card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-64x64">
+          <img :src="getBlockie" alt="Identicon" style="border-radius: 50%;">
+        </figure>
       </div>
-    </section>
+      <div class="media-content">
+        <p class="title is-4"> {{$t('User')}}: {{address}} </p>
+        <p class="subtitle is-6">的卡片</p>
+        <p class="subtitle is-6"><a class="button" :href="getEtherScanURL"> 查看TA的交易记录 </a></p>
+      </div>
+    </div>
 
+      </div>
+    </div>
+    <!-- end of rewrite -->
     <div class="tabs">
       <ul>
         <li class="is-active">
@@ -26,6 +32,7 @@
 </template>
 
 <script>
+import getIdenticon from '@/Identicon';
 import ItemList from '@/components/ItemList';
 import { getItemsOf } from '@/api';
 
@@ -40,7 +47,13 @@ export default {
 
   computed: {
     address() {
-      return this.$route.params.address.toUpperCase();
+      return this.$route.params.address;
+    },
+    getEtherScanURL() {
+      return `https://etherscan.io/address/${this.address}`;
+    },
+    getBlockie() {
+      return getIdenticon(this.address);
     },
     me() {
       return this.$store.state.me;
