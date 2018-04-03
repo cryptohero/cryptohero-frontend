@@ -18,6 +18,7 @@ module.exports = {
   Slogan: '标语',
   EDIT_SLOGAN_TIP: '购买此卡后，您可以编辑标语。',
   'Edit Slogan': '编辑标语',
+  'Claim Lucky Token': '换取 LuckyToken',
   BUY_SUCCESS_MSG: '支付成功，请等待矿工确认，稍后再来刷新看看吧。',
   BUY_FAIL_MSG: '失败了，刷新网页再试试.',
   UPDATE_SLOGAN_PROMPT: '请输入您的标语内容(最长100个字符)：',

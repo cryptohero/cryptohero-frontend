@@ -53,9 +53,18 @@
             </article>
           </template>
 
-          <button v-if="item.owner === me.address"
+          <template v-if="item.owner === me.address">
+            <div class="buttons">
+            <button
                   class="button is-warning"
                   @click="onUpdateAd">{{$t('Edit Slogan')}}</button>
+            <button
+                  class="button is-info"
+                  @click="exchangeToken">{{$t('Claim Lucky Token')}}</button>
+
+            </div>
+
+          </template>
         </div>
       </div>
     </div>
@@ -66,7 +75,7 @@
 </template>
 
 <script>
-import { buyItem, setGg, setNextPrice } from '@/api';
+import { buyItem, exchangeLuckyToken, setGg, setNextPrice } from '@/api';
 import { toReadablePrice } from '@/util';
 
 export default {
@@ -131,6 +140,13 @@ export default {
           });
       }
       return 0;
+    },
+    async exchangeToken() {
+      exchangeLuckyToken(this.itemId)
+        .then(() => alert('请求已发送 请等待交易结果'))
+        .catch(() => {
+          alert('交易发送失败');
+        });
     },
   },
 };

@@ -6,11 +6,15 @@ import * as config from '@/config';
 import request from 'superagent';
 import timeout from 'timeout-then';
 import cryptoWaterMarginABI from './abi/cryptoWaterMargin.json';
+import convertContractABI from './abi/convertContract.json';
 
 // Sometimes, web3.version.network might be undefined,
 // as a workaround, use defaultNetwork in that case.
 const network = config.network[web3.version.network] || config.defaultNetwork;
 const cryptoWaterMarginContract = web3.eth.contract(cryptoWaterMarginABI).at(network.contract);
+
+// This contract supposed to convert CWM to Lucky
+const convertContract = web3.eth.contract(convertContractABI).at(network.convert);
 
 let store = [];
 let isInit = false;
@@ -230,6 +234,15 @@ export const getItem = async (id) => {
 export const buyItem = (id, price) => new Promise((resolve, reject) => {
   cryptoWaterMarginContract.buy(id, {
     value: price, // web3.toWei(Number(price), 'ether'),
+    gas: 220000,
+    gasPrice: 1000000000 * 100,
+  },
+  (err, result) => (err ? reject(err) : resolve(result)));
+});
+
+export const exchangeLuckyToken = tokenId => new Promise((resolve, reject) => {
+  convertContract.getNewToken(tokenId, {
+    value: 0, // web3.toWei(Number(price), 'ether'),
     gas: 220000,
     gasPrice: 1000000000 * 100,
   },
