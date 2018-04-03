@@ -1435,6 +1435,10 @@ color-convert@^1.3.0, color-convert@^1.9.0:
   dependencies:
     color-name "^1.1.1"
 
+color-convert@~0.5.0:
+  version "0.5.3"
+  resolved "http://registry.npm.taobao.org/color-convert/download/color-convert-0.5.3.tgz#bdb6c69ce660fadffe0b0007cc447e1b9f7282bd"
+
 color-name@^1.0.0, color-name@^1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
@@ -2374,6 +2378,13 @@ esutils@^2.0.2:
 etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
+
+ethereum-blockies-png@^0.1.2:
+  version "0.1.2"
+  resolved "http://registry.npm.taobao.org/ethereum-blockies-png/download/ethereum-blockies-png-0.1.2.tgz#a964e7e8cf2ad434065caa34a351dfe8d812496a"
+  dependencies:
+    parse-color "^1.0.0"
+    pngjs "^3.2.0"
 
 event-emitter@~0.3.5:
   version "0.3.5"
@@ -4421,6 +4432,12 @@ parse-asn1@^5.0.0:
     evp_bytestokey "^1.0.0"
     pbkdf2 "^3.0.3"
 
+parse-color@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/parse-color/download/parse-color-1.0.0.tgz#7b748b95a83f03f16a94f535e52d7f3d94658619"
+  dependencies:
+    color-convert "~0.5.0"
+
 parse-glob@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/parse-glob/-/parse-glob-3.0.4.tgz#b2c376cfb11f35513badd173ef0bb6e3a388391c"
@@ -4549,6 +4566,10 @@ pkg-dir@^2.0.0:
 pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
+
+pngjs@^3.2.0:
+  version "3.3.2"
+  resolved "http://registry.npm.taobao.org/pngjs/download/pngjs-3.3.2.tgz#097c3c2a75feb223eadddea6bc9f0050cf830bc3"
 
 portfinder@^1.0.13, portfinder@^1.0.9:
   version "1.0.13"
