@@ -14,6 +14,7 @@ module.exports = {
   'Terms of Service': '利用規約',
   'Privacy Policy': 'プライバシーポリシー',
   'Contact Us': 'お問い合わせ',
+  'Claim Lucky Token': 'LuckyToken 交換する',
   Slogan: '広告ポジション',
   UPDATE_SLOGAN_PROMPT: 'スローガンを入力してください（100文字以内）:',
   UPDATE_SLOGAN_FAIL_TOO_LOOG_MSG: 'スローガンの制限は100文字以下。',

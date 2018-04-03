@@ -1,4 +1,4 @@
- const FAQs_CONTENT = require('raw-loader!./faq.html');
+const FAQs_CONTENT = require('raw-loader!./faq.html');
 const PRIVACY_CONTENT = require('raw-loader!./privacy.html');
 const TERMS_CONTENT = require('raw-loader!./terms.html');
 
@@ -11,7 +11,7 @@ module.exports = {
   Owner: 'Owner',
   'Current Price': 'Current Price',
   Buy: 'Buy',
-  BirthdayGift: 'Birthday Tribute(HOT)',  
+  BirthdayGift: 'Birthday Tribute(HOT)',
   'Terms of Service': 'Terms',
   'Privacy Policy': 'Privacy',
   'Contact Us': 'Contact',
@@ -22,6 +22,7 @@ module.exports = {
   BUY_SUCCESS_MSG: 'The payment is successful, please wait for the miner to confirm, refresh again later.',
   BUY_FAIL_MSG: 'Failed, refresh the page and try again.',
   'Edit Slogan': 'Edit Slogan',
+  'Claim Lucky Token': 'Claim Lucky Token',
   User: 'User',
   'His Cards': 'His/Her Cards',
   BUY_BTN: 'Buy',
