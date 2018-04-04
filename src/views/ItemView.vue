@@ -61,6 +61,7 @@
                   @click="onUpdateAd">{{$t('Edit Slogan')}}</button>
             <button
                   class="button is-info"
+                  v-if="!isLuckyClaimed"
                   @click="exchangeToken">{{$t('Claim Lucky Token')}}</button>
 
             </div>
