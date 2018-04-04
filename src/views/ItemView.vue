@@ -21,6 +21,7 @@
                 </router-link>
               </li>
               <li>{{$t('Current Price')}}：{{toDisplayedPrice(item.price)}}</li>
+              <li>{{$t('isLuckyClaim')}}：{{ isLuckyClaimed ? 'Yes' : 'No'}}</li>
             </ul>
             <p class="item-slogan">{{$t('Slogan')}}: {{ad}}</p>
             <article v-if="item.owner !== me.address"
@@ -75,7 +76,7 @@
 </template>
 
 <script>
-import { buyItem, exchangeLuckyToken, setGg, setNextPrice } from '@/api';
+import { buyItem, exchangeLuckyToken, isLuckyClaimed, setGg, setNextPrice } from '@/api';
 import { toReadablePrice } from '@/util';
 
 export default {
@@ -96,10 +97,14 @@ export default {
     ad() {
       return this.$store.state.ads[this.itemId];
     },
+    isLuckyClaimed() {
+      return this.$store.state.isClaimedLCY;
+    },
   },
   async created() {
     this.$store.dispatch('FETCH_ITEM', this.itemId);
     this.$store.dispatch('FETCH_AD', this.itemId);
+    this.$store.dispatch('FETCH_IS_CLAIM_LCY', this.itemId);
   },
 
   watch: {},
