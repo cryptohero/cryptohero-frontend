@@ -27,6 +27,9 @@ export default {
   SET_ITEM(state, { id, item }) {
     Vue.set(state.items, id, item);
   },
+  SET_IS_CLAIM_LCY(state, status) {
+    state.isClaimedLCY = status;
+  },
   SET_AD(state, { id, ad }) {
     Vue.set(state.ads, id, ad);
   },

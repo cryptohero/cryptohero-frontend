@@ -39,6 +39,11 @@ export default {
     const item = await api.getItem(id);
     commit('SET_ITEM', { id, item });
   },
+  async FETCH_IS_CLAIM_LCY({ commit }, id) {
+    const status = await api.isLuckyClaimed(id);
+    console.log(`isClaimed: ${status}`);
+    commit('SET_IS_CLAIM_LCY', status);
+  },
   async FETCH_AD({ commit }, id) {
     const ad = await api.getGg(id);
     commit('SET_AD', { id, ad });
