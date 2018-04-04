@@ -23,6 +23,7 @@ module.exports = {
   BUY_FAIL_MSG: 'Failed, refresh the page and try again.',
   'Edit Slogan': 'Edit Slogan',
   'Claim Lucky Token': 'Claim Lucky Token',
+  isLuckyClaim: 'is LCY claimed',
   User: 'User',
   'His Cards': 'His/Her Cards',
   BUY_BTN: 'Buy',
