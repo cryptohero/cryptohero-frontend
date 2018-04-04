@@ -11,6 +11,7 @@ export default () => ({
   locale: '',
   me: null,
   signInError: null,
+  isClaimedLCY: false,
   items: {},
   ads: {},
   /* Example
