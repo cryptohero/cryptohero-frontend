@@ -14,7 +14,7 @@
         <div class="card">
           <div class="card-image">
             <figure class="image is-5by4">
-              <img v-lazy="'http://test.cdn.hackx.org/heros/'+item.id+'.jpg'">
+              <img v-lazy="getCardImage(item.id)">
             </figure>
           </div>
           <div class="card-content">
@@ -67,6 +67,9 @@ export default {
         return `${ad.slice(0, 44)} ...`;
       }
       return ad;
+    },
+    getCardImage(id) {
+      return `http://test.cdn.hackx.org/heros/${id}.jpg`;
     },
   },
 
