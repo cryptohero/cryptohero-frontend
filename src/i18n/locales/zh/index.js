@@ -33,4 +33,10 @@ module.exports = {
   FAQs_CONTENT,
   PRIVACY_CONTENT,
   TERMS_CONTENT,
+  'MetaMask is locked': '你的 MetaMask 没有解锁',
+  UnlockYourMetaMask: 'Please open MetaMask and follow the instructions to unlock it.',
+  NoMetaMaskTitle: '什么喵！？',
+  NoMetaMaskMsg: '你只能在支持 Web3 的浏览器（如 Google Chrome 或 FireFox），并安装 MetaMask 插件才能正常使用这个网站',
+  LoginOKTitle: '欢迎回来',
+  LoginOKMsg: '点击这里查看你的卡片收藏',
 };

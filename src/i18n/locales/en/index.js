@@ -32,4 +32,10 @@ module.exports = {
   FAQs_CONTENT,
   PRIVACY_CONTENT,
   TERMS_CONTENT,
+  'MetaMask is locked': 'Your MetaMask is locked',
+  UnlockYourMetaMask: 'Please open MetaMask and follow the instructions to unlock it.',
+  NoMetaMaskTitle: 'What’s this meow!?',
+  NoMetaMaskMsg: 'You can only play me on a desktop browser like Chrome or Firefox.',
+  LoginOKTitle: 'Welcome Back!',
+  LoginOKMsg: 'Click Here to see your collection',
 };

@@ -7,8 +7,8 @@ export const network = {
     default: true, // It will be used when no metaMask
     name: 'Main Ethereum Network',
     contract: '0xd0792ac0de7ef31197c5f452b21a34389ecc725f',
-    convert: '',
-    luckyPackage: '',
+    convert: '0x0297fdbcb9c2023bc05ad44c9f6e69b0ae6261ce',
+    luckyPackage: '0x8b481c5af4734501ea8b6a0c3502e001dd883d3d',
     rpc: 'https://mainnet.infura.io/lTETGFVyQX99UKQ98BN4',
   },
   2: {
@@ -32,7 +32,7 @@ export const network = {
   42: {
     name: 'Kovan Test Network',
     contract: '0x23f9d870fbee3161443d9898d0c494ce0416b886',
-    luckyPackage: '0x929cc163230081ff517ccc3932c9fd70d00aaccb',
+    luckyPackage: '0xb760ada4f12e5d29eff2d9eef3bca94b574a1f2f',
     convert: '0xb55edc9c72d56447d6d1ea2476bcb42e74df16cf',
     DecentralizedExchangeHotPotato: '0xac7e1a3263e06329eee8ac5b45f3ac2223119779',
     rpc: 'https://kovan.infura.io/lTETGFVyQX99UKQ98BN4',

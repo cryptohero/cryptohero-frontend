@@ -4,11 +4,11 @@
       <div class="columns is-multiline is-mobile">
         <div class="column
            is-full-mobile">
-          <img :src="'http://test.cdn.hackx.org/heros/'+item.id+'.jpg'">
+          <img :src="getCardImage">
         </div>
         <div class="column
            is-full-mobile">
-          <img :src="'http://test.cdn.hackx.org/back/back_'+item.id+'.jpg'">
+          <img :src="getCardBackSideImage">
         </div>
         <div class="column
            is-full-mobile">
@@ -21,10 +21,10 @@
                 </router-link>
               </li>
               <li>{{$t('Current Price')}}：{{toDisplayedPrice(item.price)}}</li>
-              <li>{{$t('isLuckyClaim')}}：{{ isLuckyClaimed ? 'Yes' : 'No'}}</li>
+              <li>{{$t('isLuckyClaim')}}：{{ isConvert ? 'Yes' : 'No'}}</li>
             </ul>
             <p class="item-slogan">{{$t('Slogan')}}: {{ad}}</p>
-            <article v-if="item.owner !== me.address"
+            <article v-if="notOwner"
                      class="message is-warning">
               <div class="message-body">
                 {{$t('EDIT_SLOGAN_TIP')}}
@@ -32,7 +32,7 @@
             </article>
           </div>
 
-          <template v-if="item.owner !== me.address">
+          <template v-if="notOwner">
             <div class="buttons">
               <button class="button is-danger is-outlined"
                       @click="onBuy(1)">{{ $t('BUY_BTN') }}</button>
@@ -54,14 +54,14 @@
             </article>
           </template>
 
-          <template v-if="item.owner === me.address">
+          <template v-if="isOwner">
             <div class="buttons">
             <button
                   class="button is-warning"
                   @click="onUpdateAd">{{$t('Edit Slogan')}}</button>
             <button
                   class="button is-info"
-                  v-if="!isLuckyClaimed"
+                  v-if="!isConvert"
                   @click="exchangeToken">{{$t('Claim Lucky Token')}}</button>
 
             </div>
@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import { buyItem, exchangeLuckyToken, isLuckyClaimed, setGg, setNextPrice } from '@/api';
+import { buyItem, exchangeLuckyToken, setGg, setNextPrice } from '@/api';
 import { toReadablePrice } from '@/util';
 
 export default {
@@ -98,14 +98,25 @@ export default {
     ad() {
       return this.$store.state.ads[this.itemId];
     },
-    isLuckyClaimed() {
-      return this.$store.state.isClaimedLCY;
+    isConvert() {
+      return this.$store.state.items[this.itemId].isLCYClaimed;
+    },
+    getCardImage() {
+      return `http://test.cdn.hackx.org/heros/${this.itemId}.jpg`;
+    },
+    getCardBackSideImage() {
+      return `http://test.cdn.hackx.org/back/back_${this.itemId}.jpg`;
+    },
+    isOwner() {
+      return this.item.owner === this.me.address;
+    },
+    notOwner() {
+      return !this.isOwner;
     },
   },
   async created() {
     this.$store.dispatch('FETCH_ITEM', this.itemId);
     this.$store.dispatch('FETCH_AD', this.itemId);
-    this.$store.dispatch('FETCH_IS_CLAIM_LCY', this.itemId);
   },
 
   watch: {},
@@ -148,6 +159,7 @@ export default {
       return 0;
     },
     async exchangeToken() {
+      // need i18n
       exchangeLuckyToken(this.itemId)
         .then(() => alert('请求已发送 请等待交易结果'))
         .catch(() => {
