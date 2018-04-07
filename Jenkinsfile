@@ -39,7 +39,7 @@ node {
   } else {
     echo "Skip deployment on branch: ${env.BRANCH_NAME}"
     echo "Deployment only works on ${cfg.production.branch}/${cfg.testing.branch} branches"
-    sh 'exit 0'
+    return
   }
 
   stage('Build image') {
