@@ -244,13 +244,13 @@ export const buyItem = (id, price) => new Promise((resolve, reject) => {
 export const exchangeLuckyToken = tokenId => new Promise((resolve, reject) => {
   convertContract.getNewToken(tokenId, {
     value: 0, // web3.toWei(Number(price), 'ether'),
-    gas: 220000,
-    gasPrice: 1000000000 * 100,
+    gas: 80000,
+    gasPrice: 1000000000 * 18,
   },
   (err, result) => (err ? reject(err) : resolve(result)));
 });
 
-export const isLuckyClaimed = cardId => new Promise((resolve, reject) => {
+export const isConvert = cardId => new Promise((resolve, reject) => {
   convertContract.isConvert(cardId,
     (err, result) => (err ? reject(err) : resolve(result)));
 });
