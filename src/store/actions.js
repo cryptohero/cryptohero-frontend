@@ -37,12 +37,12 @@ export default {
   },
   async FETCH_ITEM({ commit }, id) {
     const item = await api.getItem(id);
+
+    // Get is LCY Claimed and merge the status into the item
+    const isLCYClaimed = await api.isConvert(id);
+    item.isLCYClaimed = isLCYClaimed;
+
     commit('SET_ITEM', { id, item });
-  },
-  async FETCH_IS_CLAIM_LCY({ commit }, id) {
-    const status = await api.isLuckyClaimed(id);
-    console.log(`isClaimed: ${status}`);
-    commit('SET_IS_CLAIM_LCY', status);
   },
   async FETCH_AD({ commit }, id) {
     const ad = await api.getGg(id);

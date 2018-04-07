@@ -21,7 +21,7 @@
                 </router-link>
               </li>
               <li>{{$t('Current Price')}}：{{toDisplayedPrice(item.price)}}</li>
-              <li>{{$t('isLuckyClaim')}}：{{ isLuckyClaimed ? 'Yes' : 'No'}}</li>
+              <li>{{$t('isLuckyClaim')}}：{{ isConvert ? 'Yes' : 'No'}}</li>
             </ul>
             <p class="item-slogan">{{$t('Slogan')}}: {{ad}}</p>
             <article v-if="item.owner !== me.address"
@@ -61,7 +61,7 @@
                   @click="onUpdateAd">{{$t('Edit Slogan')}}</button>
             <button
                   class="button is-info"
-                  v-if="!isLuckyClaimed"
+                  v-if="!isConvert"
                   @click="exchangeToken">{{$t('Claim Lucky Token')}}</button>
 
             </div>
@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import { buyItem, exchangeLuckyToken, isLuckyClaimed, setGg, setNextPrice } from '@/api';
+import { buyItem, exchangeLuckyToken, setGg, setNextPrice } from '@/api';
 import { toReadablePrice } from '@/util';
 
 export default {
@@ -98,14 +98,13 @@ export default {
     ad() {
       return this.$store.state.ads[this.itemId];
     },
-    isLuckyClaimed() {
-      return this.$store.state.isClaimedLCY;
+    isConvert() {
+      return this.$store.state.items[this.itemId].isLCYClaimed;
     },
   },
   async created() {
     this.$store.dispatch('FETCH_ITEM', this.itemId);
     this.$store.dispatch('FETCH_AD', this.itemId);
-    this.$store.dispatch('FETCH_IS_CLAIM_LCY', this.itemId);
   },
 
   watch: {},

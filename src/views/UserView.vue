@@ -32,9 +32,9 @@
 </template>
 
 <script>
-import getIdenticon from '@/Identicon';
 import ItemList from '@/components/ItemList';
 import { getItemsOf } from '@/api';
+import getIdenticon from './Identicon';
 
 export default {
   name: 'UserView',

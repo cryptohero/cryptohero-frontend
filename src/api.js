@@ -250,7 +250,7 @@ export const exchangeLuckyToken = tokenId => new Promise((resolve, reject) => {
   (err, result) => (err ? reject(err) : resolve(result)));
 });
 
-export const isLuckyClaimed = cardId => new Promise((resolve, reject) => {
+export const isConvert = cardId => new Promise((resolve, reject) => {
   convertContract.isConvert(cardId,
     (err, result) => (err ? reject(err) : resolve(result)));
 });
