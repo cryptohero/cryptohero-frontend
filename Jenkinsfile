@@ -6,22 +6,12 @@ node {
   def APP_NAME
   def IMAGE_TAG
   def NAMESPACE
+  def cfg
 
   stage('Init parameters') {
-    def cfg
-
     configFileProvider(
       [configFile(fileId: 'CI_CONFIG', variable: 'CI_CONFIG_FILE')]) {
         cfg = readJSON file: "$CI_CONFIG_FILE"
-    }
-
-    if (env.BRANCH_NAME == cfg.production.branch) {
-      NAMESPACE = cfg.production.namespace
-    } else if (env.BRANCH_NAME == cfg.testing.branch) {
-      NAMESPACE = cfg.testing.namespace
-    } else {
-      echo "Only works on ${cfg.production.branch}/${cfg.testing.branch} branches"
-      sh 'exit 1'
     }
 
     GCP_PROJECT = cfg.gcp.project
@@ -42,11 +32,22 @@ node {
     }
   }
 
-  stage('Build image') {
-    docker.build("${IMAGE_TAG}")
+  if (env.BRANCH_NAME == cfg.production.branch) {
+    NAMESPACE = cfg.production.namespace
+  } else if (env.BRANCH_NAME == cfg.testing.branch) {
+    NAMESPACE = cfg.testing.namespace
+  } else {
+    echo "Skip deployment on branch: ${env.BRANCH_NAME}"
+    echo "Deployment only works on ${cfg.production.branch}/${cfg.testing.branch} branches"
+    return
   }
 
   stage('Sign in GCP') {
+
+    stage('Build image') {
+      docker.build("${IMAGE_TAG}")
+    }
+
     withCredentials([file(credentialsId: "${GCP_SERVICE_ACCOUNT_CREDENTIALID}", variable: 'KEY_FILE')]) {
         docker.image('google/cloud-sdk:latest').inside {
             sh "gcloud auth activate-service-account --key-file=$KEY_FILE"
