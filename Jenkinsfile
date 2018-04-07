@@ -42,11 +42,12 @@ node {
     return
   }
 
-  stage('Build image') {
-    docker.build("${IMAGE_TAG}")
-  }
-
   stage('Sign in GCP') {
+
+    stage('Build image') {
+      docker.build("${IMAGE_TAG}")
+    }
+
     withCredentials([file(credentialsId: "${GCP_SERVICE_ACCOUNT_CREDENTIALID}", variable: 'KEY_FILE')]) {
         docker.image('google/cloud-sdk:latest').inside {
             sh "gcloud auth activate-service-account --key-file=$KEY_FILE"
