@@ -7,8 +7,8 @@ export const network = {
     default: true, // It will be used when no metaMask
     name: 'Main Ethereum Network',
     contract: '0xd0792ac0de7ef31197c5f452b21a34389ecc725f',
-    convert: '',
-    luckyPackage: '',
+    convert: '0x0297fdbcb9c2023bc05ad44c9f6e69b0ae6261ce',
+    luckyPackage: '0x8b481c5af4734501ea8b6a0c3502e001dd883d3d',
     rpc: 'https://mainnet.infura.io/lTETGFVyQX99UKQ98BN4',
   },
   2: {
