@@ -31,4 +31,10 @@ module.exports = {
   FAQs_CONTENT,
   PRIVACY_CONTENT,
   TERMS_CONTENT,
+  'MetaMask is locked': 'あなたのMetaMaskはロックされています',
+  UnlockYourMetaMask: 'MetaMaskを開き、指示に従ってロックを解除してください。',
+  NoMetaMaskTitle: 'あなたのブラウザはMetaMask Pluginを持っていません',
+  NoMetaMaskMsg: 'ChromeやFirefoxなどのデスクトップブラウザでのみ再生できます。',
+  LoginOKTitle: 'お帰りなさい!',
+  LoginOKMsg: 'あなたのカードコレクションを見るにはここをクリック',
 };
