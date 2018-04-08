@@ -24,3 +24,11 @@ spec:
       - image: IMAGE_TAG
         imagePullPolicy: Always
         name: APP_NAME
+        volumeMounts:
+        - name: tls-volume
+          readOnly: true
+          mountPath: "/etc/tls"
+      volumes:
+      - name: tls-volume
+        secret:
+          secretName: crypto-hero-web-tls
