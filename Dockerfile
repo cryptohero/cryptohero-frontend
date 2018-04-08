@@ -1,5 +1,7 @@
 FROM nginx:1.13.9
 COPY dist /usr/share/nginx/html
+COPY nginx/ /etc/nginx/
+
 LABEL maintainer "kjlmfe@gmail.com"
 
 # set a health check
