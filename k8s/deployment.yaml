@@ -31,4 +31,4 @@ spec:
       volumes:
       - name: tls-volume
         secret:
-          secretName: crypto-hero-web-tls
+          secretName: APP_NAME-tls
