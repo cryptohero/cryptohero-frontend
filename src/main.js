@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import vueConfig from 'vue-config';
 import VueLazyload from 'vue-lazyload';
+import AsyncComputed from 'vue-async-computed';
 import * as config from '@/config';
 import App from './App';
 import store from './store';
@@ -12,6 +13,7 @@ import i18n from './i18n';
 Vue.config.productionTip = false;
 
 Vue.use(VueLazyload);
+Vue.use(AsyncComputed);
 Vue.use(vueConfig, config);
 
 /* eslint-disable no-new */

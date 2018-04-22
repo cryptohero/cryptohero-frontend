@@ -14,16 +14,42 @@
            is-full-mobile">
           <div class="content">
             <h2>{{item.nickname}} · {{item.name}}</h2>
+            <!-- Experimental Start -->
+            <div class="card">
+                <div class="card-image">
+                  <figure class="image is-1by1" style="margin: 0">
+                    <img :src="getOwnerAvatar" alt="Holder image">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{$t('Owner')}} {{ownerTag}}</p>
+                      <p class="subtitle is-6"> {{$t('Current Price')}}：{{toDisplayedPrice(item.price)}} </p>
+                      <p class="subtitle is-6"> {{$t('isLuckyClaim')}}: {{ isConvert ? 'Yes' : 'No'}} </p>
+                      <p class="subtitle is-6"> {{$t('Slogan')}}: {{ad}} </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- Experimental End -->
+
+             <!-- <router-link :to="{ name: 'User', params:{address: item.owner}}">
+            <figure class="image is-128x128">
+              <img class="item-image"
+              :src="getOwnerAvatar">
+            </figure>
+            </router-link>
             <ul>
               <li>{{$t('Owner')}}：
                 <router-link :to="{ name: 'User', params:{address: item.owner}}">
-                  {{item.owner.slice(-6).toUpperCase()}}
+                  {{ownerTag}}
                 </router-link>
               </li>
               <li>{{$t('Current Price')}}：{{toDisplayedPrice(item.price)}}</li>
               <li>{{$t('isLuckyClaim')}}：{{ isConvert ? 'Yes' : 'No'}}</li>
             </ul>
-            <p class="item-slogan">{{$t('Slogan')}}: {{ad}}</p>
+            <p class="item-slogan">{{$t('Slogan')}}: {{ad}}</p> -->
             <article v-if="notOwner"
                      class="message is-warning">
               <div class="message-body">
@@ -79,18 +105,32 @@
 <script>
 import { buyItem, exchangeLuckyToken, setGg, setNextPrice } from '@/api';
 import { toReadablePrice } from '@/util';
+import Dravatar from 'dravatar';
 
 export default {
   name: 'item-view',
 
   data: () => ({}),
 
+  asyncComputed: {
+    async getOwnerAvatar() {
+      const uri = await Dravatar(this.ownerAddress);
+      return uri;
+    },
+  },
+
   computed: {
+    ownerTag() {
+      return this.item.owner.slice(-6).toUpperCase();
+    },
     itemId() {
       return this.$route.params.id;
     },
     me() {
       return this.$store.state.me || {};
+    },
+    ownerAddress() {
+      return this.item.owner;
     },
     item() {
       return this.$store.state.items[this.itemId];
