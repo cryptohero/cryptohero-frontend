@@ -145,7 +145,7 @@ export default {
       return `http://test.cdn.hackx.org/heros/${this.itemId}.jpg`;
     },
     getCardBackSideImage() {
-      return `http://test.cdn.hackx.org/back/back_${this.itemId}.jpg`;
+      return `http://test.cdn.hackx.org/back/${this.itemId}.jpeg`;
     },
     isOwner() {
       return this.item.owner === this.me.address;
