@@ -69,7 +69,8 @@ export default {
       return ad;
     },
     getCardImage(id) {
-      return `http://test.cdn.hackx.org/heros/${id}.jpg`;
+      // return `http://test.cdn.hackx.org/heros/${id}.jpg`;
+      return `static/assets/heros/${id}.jpg`;
     },
   },
 
